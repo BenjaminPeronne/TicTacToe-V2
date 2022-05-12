@@ -1,0 +1,49 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: antiquewhite;
+}
+
+p {
+  color: black;
+}
+
+header {
+  width: 100%;
+}
+header h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+main .grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+main .element {
+  width: 150px;
+  height: 150px;
+}
+main .element:nth-child(1) {
+  background-color: red;
+}
+main .element:nth-child(2) {
+  background-color: green;
+}
+main .element:nth-child(3) {
+  background-color: blue;
+}
+
+footer {
+  width: 100%;
+}
+footer p {
+  text-align: center;
+}
