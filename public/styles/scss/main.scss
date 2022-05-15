@@ -24,6 +24,7 @@ header {
 main {
 	display: flex;
 	justify-content: center;
+	
 
 	& .grid {
 		display: flex;
@@ -47,8 +48,6 @@ main {
 		div:nth-child(2)>.element:nth-child(1) {
 			border-top: none;
 		}
-
-		div:nth-child(2)>.element:nth-child(2) {}
 
 		div:nth-child(2)>.element:nth-child(3) {
 			border-bottom: none;
@@ -76,10 +75,10 @@ main {
 		// margin: 1em 0.5em;
 		justify-content: center;
 		align-items: center;
-		cursor: pointer;
 
 		p {
 			font-size: 5rem;
+			// cursor: pointer;
 		}
 	}
 
@@ -137,4 +136,13 @@ footer {
 
 .cross:after {
 	transform: rotate(-45deg);
+}
+
+
+// Responsive
+@media (max-width: 414px) {
+	.element {
+		width: 100px !important;
+		height: 100px !important;
+	}
 }

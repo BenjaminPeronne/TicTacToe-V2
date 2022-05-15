@@ -62,7 +62,6 @@ main .element {
   height: 150px;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 }
 main .element p {
   font-size: 5rem;
@@ -113,4 +112,11 @@ footer p {
 
 .cross:after {
   transform: rotate(-45deg);
+}
+
+@media (max-width: 414px) {
+  .element {
+    width: 100px !important;
+    height: 100px !important;
+  }
 }
