@@ -3,11 +3,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: antiquewhite;
+  background-color: #212529;
 }
 
-p {
-  color: black;
+p,
+h1 {
+  color: white;
 }
 
 header {
@@ -27,18 +28,53 @@ main .grid {
   flex-wrap: wrap;
   justify-content: center;
 }
+main .grid div:nth-child(1) > .element:nth-child(1) {
+  border-top: none;
+  border-left: none;
+}
+main .grid div:nth-child(1) > .element:nth-child(2) {
+  border-left: none;
+}
+main .grid div:nth-child(1) > .element:nth-child(3) {
+  border-bottom: none;
+  border-left: none;
+}
+main .grid div:nth-child(2) > .element:nth-child(1) {
+  border-top: none;
+}
+main .grid div:nth-child(2) > .element:nth-child(3) {
+  border-bottom: none;
+}
+main .grid div:nth-child(3) > .element:nth-child(1) {
+  border-top: none;
+  border-right: none;
+}
+main .grid div:nth-child(3) > .element:nth-child(2) {
+  border-right: none;
+}
+main .grid div:nth-child(3) > .element:nth-child(3) {
+  border-bottom: none;
+  border-right: none;
+}
 main .element {
+  display: flex;
   width: 150px;
   height: 150px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+main .element p {
+  font-size: 5rem;
 }
 main .element:nth-child(1) {
-  background-color: red;
+  border: 1px solid white;
 }
 main .element:nth-child(2) {
-  background-color: green;
+  border: 1px solid white;
 }
 main .element:nth-child(3) {
-  background-color: blue;
+  border: 1px solid white;
 }
 
 footer {
@@ -46,4 +82,35 @@ footer {
 }
 footer p {
   text-align: center;
+}
+
+.cross {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+}
+
+.cross:hover {
+  opacity: 1;
+}
+
+.cross:before,
+.cross:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 2px;
+  background-color: white;
+}
+
+.cross:before {
+  transform: rotate(45deg);
+}
+
+.cross:after {
+  transform: rotate(-45deg);
 }
