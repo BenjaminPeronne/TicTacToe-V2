@@ -91,7 +91,7 @@ route(app);
 
 // // // // // // // // // // // // // // //
 
-let port = 8000;
+let port = 8001;
 let port_color = colors.yellow;
 
 // If in prod, use proxy's config port
@@ -118,6 +118,10 @@ if (!dev_mode) {
 }
 
 // HTTP
-app.listen(port, () => {
+// app.listen(port, () => {
+// 	console.log(`HTTP server listening on port ${port_color}${port}${colors.white}`);
+// });
+
+app.listen(port, '0.0.0.0', () => {
 	console.log(`HTTP server listening on port ${port_color}${port}${colors.white}`);
 });

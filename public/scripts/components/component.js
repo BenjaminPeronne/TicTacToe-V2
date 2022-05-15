@@ -17,10 +17,10 @@ const class_name = tag
 	.join('');
 
 // Colors for console
-const red = '\033[31m';
-const cyan = '\033[36m';
-const yellow = '\033[33m';
-const reset = '\033[0m';
+const red = '\033[31m'; // Red
+const cyan = '\033[36m'; // Cyan
+const yellow = '\033[33m'; // Yellow
+const reset = '\033[0m'; // Reset
 
 console.log(`Creating component ${cyan}<${red}${tag}${cyan}>${reset} from ${yellow}${class_name}${reset} class`);
 

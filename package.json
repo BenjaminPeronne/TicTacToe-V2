@@ -1,14 +1,14 @@
 {
 	"name": "tic-tac-toe",
-	"version": "22.03.09",
-	"description": "Node.js express http server made to use with RedBird https proxy",
+	"version": "0.0.1",
+	"description": "Simple tic-tac-toe game",
 	"main": "server.js",
 	"scripts": {
 		"start": "node ./src/server.js",
 		"start:nodemon": "nodemon --ignore private src/server.js",
-		"start:dev": "dev.bat",
-		"start:prod": "pm2 start src/server.js --name \"tic-tac-toe\" && npm run logs",
-		"update:prod": "git reset --hard && git pull && npm i && pm2 flush && clear && pm2 restart all --update-env && echo \"Update done\"",
+		"start:dev": "sh dev.benjaminperonne.sh",
+		
+		
 		"new:component": "node public/scripts/components/component.js",
 		"sass": "sass --no-source-map --watch public/styles/scss:public/styles/css",
 		"logs": "pm2 logs tic-tac-toe --raw"
