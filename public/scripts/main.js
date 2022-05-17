@@ -72,13 +72,40 @@ function checkWin(grid) {
     }
 }
 
-function checkIfGridIsFull(grid) {
+// min max algorithm to find the best move for the computer
+function minMax(grid, player) {
+    let bestMove = {
+        score: -Infinity,
+        move: null
+    }
     for (let i = 0; i < grid.length; i++) {
-        if (grid[i].innerText === '') {
-            return false
+        if (grid[i].firstElementChild.innerText === '') {
+            grid[i].firstElementChild.innerText = player.icon
+            if (checkWin(grid) === true) {
+                grid[i].firstElementChild.innerText = ''
+                return {
+                    score: 1,
+                    move: i
+                }
+            }
+            else if (checkIfGridIsFull(grid) === true) {
+                grid[i].firstElementChild.innerText = ''
+                return {
+                    score: 0,
+                    move: i
+                }
+            }
+            else {
+                let result = minMax(grid, player)
+                grid[i].firstElementChild.innerText = ''
+                if (result.score > bestMove.score) {
+                    bestMove.score = result.score
+                    bestMove.move = i
+                }
+            }
         }
     }
-    return true
+    return bestMove
 }
 
 for (let i = 0; i < elements.length; i++) {
