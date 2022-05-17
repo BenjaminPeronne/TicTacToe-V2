@@ -1,17 +1,21 @@
-const elements = document.querySelectorAll('.element');
-const currentPlayer = document.querySelector('#currentPlayer');
-console.log(elements);
+const elements = document.querySelectorAll('.element'); // Get all elements
+const currentPlayer = document.querySelector('#currentPlayer'); // Reset the game
 
 let player1 = {
     icon: 'X',
-    turn: false
+    turn: false,
+    win: false,
+    score: 0
 }
 
 let player2 = {
     icon: 'O',
-    turn: true
+    turn: true,
+    win: false,
+    score: 0
 }
 
+// Switch player turn between X and O
 function switchPlayer(player1, player2) {
     if (player1.turn === true) {
         player1.turn = false;
