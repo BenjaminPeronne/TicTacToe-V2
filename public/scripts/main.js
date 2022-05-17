@@ -108,27 +108,54 @@ function minMax(grid, player) {
     return bestMove
 }
 
-for (let i = 0; i < elements.length; i++) {
-    elements[i].addEventListener('click', function () {
-        console.log(elements[i]);
-        elements[i].firstElementChild.innerText = switchPlayer(player1, player2);
+// Start the game
+function startGame() {
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].addEventListener('click', function () {
+            if (elements[i].firstElementChild.innerText === '') {
+                elements[i].firstElementChild.innerText = switchPlayer(player1, player2)
+                if (checkWin(elements) === true) {
+                    currentPlayer.innerText = 'Game is done with a victory ...';
+                    player1.win = true;
+                    player2.win = false;
+                    player1.score++;
+                    setTimeout(function () {
+                        switchPlayer(player1, player2);  // Lazy version ...
+                        alert('Player ' + switchPlayer(player1, player2) + ' win');
+                        location.reload();
+                    }, 100);
+                    document.querySelector('#player1').innerText = player1.score;
+                }
+                else if (checkIfGridIsFull(elements) === true) {
+                    currentPlayer.innerText = 'Draw';
+                    player1.win = false;
+                    player2.win = false;
+                    setTimeout(function () {
+                        alert('Game is a draw');
+                        location.reload();
+                    }, 100);
+                }
+                else {
+                    let result = minMax(elements, player1)
+                    elements[result.move].firstElementChild.innerText = switchPlayer(player1, player2)
+                    if (checkWin(elements) === true || checkIfGridIsFull(elements) === true && checkWin(elements) === true) {
+                        currentPlayer.innerText = 'Game is done with a victory ...';
+                        player1.win = true;
+                        player2.win = false;
+                        player1.score++;
+                        // document.querySelector('#player1').innerText = player1.score;
+                        setTimeout(function () {
+                            switchPlayer(player1, player2);  // Lazy version ...
+                            alert('Player ' + switchPlayer(player1, player2) + ' win');
+                            location.reload();
+                        }, 100);
+                    }
+                }
 
-        if (blockClick(elements[i])) {
-            console.log('blocked');
-        }
-
-        if (checkIfGridIsFull(elements)) {
-            console.log('draw');
-            setTimeout(function () {
-                alert('draw');
-                location.reload();
-            }, 100);
-            
-        }
-
-        // if (checkWinnerRow(elements)) {
-        //     alert('Winner is ' + elements[i].firstElementChild.innerText);
-        //     location.reload();
-        // }
-    });
+            }
+        })
+    }
 }
+
+
+startGame();
