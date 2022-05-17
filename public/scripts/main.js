@@ -34,14 +34,35 @@ function blockClick(element) {
     })
 }
 
-function checkWinnerRow(row) {
-    if (row[0].innerText === row[3].innerText) {
-        return true;
+// Check if there is 3 aligned elements in a row, column or diagonal
+function checkWin(grid) {
+    if (grid[0].innerText === grid[1].innerText && grid[1].innerText === grid[2].innerText && grid[0].innerText !== '') {
+        return true
+    }
+    else if (grid[3].innerText === grid[4].innerText && grid[4].innerText === grid[5].innerText && grid[3].innerText !== '') {
+        return true
+    }
+    else if (grid[6].innerText === grid[7].innerText && grid[7].innerText === grid[8].innerText && grid[6].innerText !== '') {
+        return true
+    }
+    else if (grid[0].innerText === grid[3].innerText && grid[3].innerText === grid[6].innerText && grid[0].innerText !== '') {
+        return true
+    }
+    else if (grid[1].innerText === grid[4].innerText && grid[4].innerText === grid[7].innerText && grid[1].innerText !== '') {
+        return true
+    }
+    else if (grid[2].innerText === grid[5].innerText && grid[5].innerText === grid[8].innerText && grid[2].innerText !== '') {
+        return true
+    }
+    else if (grid[0].innerText === grid[4].innerText && grid[4].innerText === grid[8].innerText && grid[0].innerText !== '') {
+        return true
+    }
+    else if (grid[2].innerText === grid[4].innerText && grid[4].innerText === grid[6].innerText && grid[2].innerText !== '') {
+        return true
     }
     else {
         return false
     }
-
 }
 
 function checkIfGridIsFull(grid) {
