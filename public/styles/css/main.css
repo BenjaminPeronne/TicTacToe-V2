@@ -62,6 +62,7 @@ main .element {
   height: 150px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 main .element p {
   font-size: 5rem;

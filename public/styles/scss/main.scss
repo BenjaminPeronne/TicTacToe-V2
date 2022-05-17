@@ -75,10 +75,10 @@ main {
 		// margin: 1em 0.5em;
 		justify-content: center;
 		align-items: center;
+		cursor: pointer;
 
 		p {
-			font-size: 5rem;
-			// cursor: pointer;
+			font-size: 5rem;			
 		}
 	}
 
@@ -137,7 +137,6 @@ footer {
 .cross:after {
 	transform: rotate(-45deg);
 }
-
 
 // Responsive
 @media (max-width: 414px) {
