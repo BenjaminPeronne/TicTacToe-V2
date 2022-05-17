@@ -31,11 +31,14 @@ function switchPlayer(player1, player2) {
     }
 }
 
-// function blockClick to prevent click on already inserted element
-function blockClick(element) {
-    element.addEventListener('click', function (e) {
-        e.preventDefault();
-    })
+// Check if the grid is full, if is it then stop the game
+function checkIfGridIsFull(grid) {
+    for (let i = 0; i < grid.length; i++) {
+        if (grid[i].innerText === '') {
+            return false
+        }
+    }
+    return true
 }
 
 // Check if there is 3 aligned elements in a row, column or diagonal
