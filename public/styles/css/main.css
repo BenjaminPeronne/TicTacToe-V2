@@ -83,6 +83,9 @@ footer {
 footer p {
   text-align: center;
 }
+footer a {
+  color: #00E0FF;
+}
 
 .cross {
   position: absolute;

@@ -21,13 +21,13 @@ function switchPlayer(player1, player2) {
         player1.turn = false;
         player2.turn = true;
         currentPlayer.innerText = 'Player : ' + player1.icon + ' turn';
-        return player2.icon
+        return player2.icon;
     }
     else {
         player1.turn = true;
         player2.turn = false;
         currentPlayer.innerText = 'Player : ' + player2.icon + ' turn';
-        return player1.icon
+        return player1.icon;
     }
 }
 
@@ -35,7 +35,7 @@ function switchPlayer(player1, player2) {
 function checkIfGridIsFull(grid) {
     for (let i = 0; i < grid.length; i++) {
         if (grid[i].innerText === '') {
-            return false
+            return false;
         }
     }
     return true
@@ -44,31 +44,31 @@ function checkIfGridIsFull(grid) {
 // Check if there is 3 aligned elements in a row, column or diagonal
 function checkWin(grid) {
     if (grid[0].innerText === grid[1].innerText && grid[1].innerText === grid[2].innerText && grid[0].innerText !== '') {
-        return true
+        return true;
     }
     else if (grid[3].innerText === grid[4].innerText && grid[4].innerText === grid[5].innerText && grid[3].innerText !== '') {
-        return true
+        return true;
     }
     else if (grid[6].innerText === grid[7].innerText && grid[7].innerText === grid[8].innerText && grid[6].innerText !== '') {
-        return true
+        return true;
     }
     else if (grid[0].innerText === grid[3].innerText && grid[3].innerText === grid[6].innerText && grid[0].innerText !== '') {
-        return true
+        return true;
     }
     else if (grid[1].innerText === grid[4].innerText && grid[4].innerText === grid[7].innerText && grid[1].innerText !== '') {
-        return true
+        return true;
     }
     else if (grid[2].innerText === grid[5].innerText && grid[5].innerText === grid[8].innerText && grid[2].innerText !== '') {
-        return true
+        return true;
     }
-    else if (grid[0].innerText === grid[4].innerText && grid[4].innerText === grid[8].innerText && grid[0].innerText !== '') {
-        return true
+    else if (grid[0].innerText === grid[4].innerText && grid[4].innerText === grid[8].innerText && grid[0].innerText !== '') { 
+        return true;
     }
-    else if (grid[2].innerText === grid[4].innerText && grid[4].innerText === grid[6].innerText && grid[2].innerText !== '') {
-        return true
+    else if (grid[2].innerText === grid[4].innerText && grid[4].innerText === grid[6].innerText && grid[2].innerText !== '') {  
+        return true;
     }
     else {
-        return false
+        return false; 
     }
 }
 
@@ -82,7 +82,7 @@ function minMax(grid, player) {
         if (grid[i].firstElementChild.innerText === '') {
             grid[i].firstElementChild.innerText = player.icon
             if (checkWin(grid) === true) {
-                grid[i].firstElementChild.innerText = ''
+                grid[i].firstElementChild.innerText = ''                
                 return {
                     score: 1,
                     move: i
@@ -125,7 +125,7 @@ function startGame() {
                         alert('Player ' + switchPlayer(player1, player2) + ' win');
                         location.reload();
                     }, 100);
-                    document.querySelector('#player1').innerText = player1.score;
+                    // document.querySelector('#player1').innerText = player1.score;
                 }
                 else if (checkIfGridIsFull(elements) === true) {
                     currentPlayer.innerText = 'Draw';
@@ -156,6 +156,5 @@ function startGame() {
         })
     }
 }
-
 
 startGame();
